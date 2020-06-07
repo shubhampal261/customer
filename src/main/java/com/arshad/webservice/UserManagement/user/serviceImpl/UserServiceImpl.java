@@ -1,13 +1,13 @@
-package com.arshad.webservice.UserManagement.user;
+package com.arshad.webservice.UserManagement.user.serviceImpl;
 
-import org.springframework.data.crossstore.HashMapChangeSet;
-import org.springframework.stereotype.Component;
+import com.arshad.webservice.UserManagement.user.beans.User;
+import com.arshad.webservice.UserManagement.user.services.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
-public class UserServiceDAO {
+public class UserServiceImpl implements UserService {
 
     private static int userCount=2;
     private static  List<User> userList = new ArrayList<>();

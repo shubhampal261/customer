@@ -1,4 +1,4 @@
-package com.arshad.webservice.UserManagement.user;
+package com.arshad.webservice.UserManagement.user.beans;
 
 
 import java.util.Date;
