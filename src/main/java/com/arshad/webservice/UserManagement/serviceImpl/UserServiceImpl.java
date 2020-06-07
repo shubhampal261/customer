@@ -1,7 +1,7 @@
-package com.arshad.webservice.UserManagement.user.serviceImpl;
+package com.arshad.webservice.UserManagement.serviceImpl;
 
-import com.arshad.webservice.UserManagement.user.beans.User;
-import com.arshad.webservice.UserManagement.user.services.UserService;
+import com.arshad.webservice.UserManagement.beans.User;
+import com.arshad.webservice.UserManagement.services.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

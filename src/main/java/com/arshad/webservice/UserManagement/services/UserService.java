@@ -1,6 +1,6 @@
-package com.arshad.webservice.UserManagement.user.services;
+package com.arshad.webservice.UserManagement.services;
 
-import com.arshad.webservice.UserManagement.user.beans.User;
+import com.arshad.webservice.UserManagement.beans.User;
 
 import java.util.List;
 

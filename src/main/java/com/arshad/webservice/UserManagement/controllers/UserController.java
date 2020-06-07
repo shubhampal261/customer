@@ -1,8 +1,8 @@
-package com.arshad.webservice.UserManagement.user.controllers;
+package com.arshad.webservice.UserManagement.controllers;
 
-import com.arshad.webservice.UserManagement.user.serviceImpl.UserServiceImpl;
-import com.arshad.webservice.UserManagement.user.beans.User;
-import com.arshad.webservice.UserManagement.user.services.UserService;
+import com.arshad.webservice.UserManagement.beans.User;
+import com.arshad.webservice.UserManagement.services.UserService;
+import com.arshad.webservice.UserManagement.utils.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,11 @@ public class UserController {
 
     @GetMapping(path = "/users/{id}")
     public User getUser(@PathVariable int id){
-        return userServiceImpl.getUserByID(id);
+        User user = userServiceImpl.getUserByID(id);
+        if(user == null){
+            throw new UserNotFoundException(id);
+        }
+        return user;
     }
 
     @PostMapping(path = "/users")
