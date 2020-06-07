@@ -2,6 +2,7 @@ package com.arshad.webservice.UserManagement.controllers;
 
 import com.arshad.webservice.UserManagement.beans.User;
 import com.arshad.webservice.UserManagement.services.UserService;
+import com.arshad.webservice.UserManagement.utils.UserConstants;
 import com.arshad.webservice.UserManagement.utils.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class UserController {
     public User getUser(@PathVariable int id){
         User user = userServiceImpl.getUserByID(id);
         if(user == null){
-            throw new UserNotFoundException(id);
+            throw new UserNotFoundException(String.format(UserConstants.CANNOT_FIND_USER,id));
         }
         return user;
     }
@@ -37,6 +38,15 @@ public class UserController {
         userServiceImpl.addUser(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(location).build();
+    }
+
+    @DeleteMapping(path = "/users/{id}")
+    public ResponseEntity deleteUser(@PathVariable int id){
+        User user = userServiceImpl.deleteUserById(id);
+        if(user == null){
+            throw new UserNotFoundException(String.format(UserConstants.CANNOT_DELETE_USER,id));
+        }
+        return ResponseEntity.noContent().build();
     }
 
 }

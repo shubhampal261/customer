@@ -4,7 +4,10 @@ import com.arshad.webservice.UserManagement.beans.User;
 import com.arshad.webservice.UserManagement.services.UserService;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -35,4 +38,18 @@ public class UserServiceImpl implements UserService {
         userList.add(user);
         return user;
     }
+
+    @Override
+    public User deleteUserById(int id) {
+        Iterator<User> itr = userList.iterator();
+        while (itr.hasNext()){
+            User user = itr.next();
+            if(user.getId() == id){
+                userList.remove(user);
+                return user;
+            }
+        }
+        return null;
+    }
+
 }
