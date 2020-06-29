@@ -5,6 +5,7 @@ import com.arshad.webservice.UserManagement.services.UserService;
 import com.arshad.webservice.UserManagement.utils.UserConstants;
 import com.arshad.webservice.UserManagement.utils.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -17,6 +18,8 @@ import java.util.List;
 public class UserController {
 
     @Autowired
+//    @Qualifier(value = "userServiceImpl")
+    @Qualifier(value = "userServiceDbImpl")
     private UserService userServiceImpl;
 
     @GetMapping(path = "/users")

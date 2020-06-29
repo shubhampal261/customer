@@ -1,18 +1,42 @@
 package com.arshad.webservice.UserManagement.beans;
 
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
+    @Column(name = "birth_date")
     private Date birthDate;
 
-    public User(int id, String name, Date birthDate) {
+    @Column(name = "created_at", updatable = false, nullable = false)
+    @CreationTimestamp
+    private Date createdAt;
+
+    @Column(name = "updated_at", nullable = false)
+    @UpdateTimestamp
+    private Date updatedAt;
+
+    public User() {
+    }
+
+    public User(int id, String name, Date birthDate, Date createdAt, Date updatedAt) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
@@ -39,12 +63,30 @@ public class User {
         this.birthDate = birthDate;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", birthDate=" + birthDate +
+                ", createdAt=" + createdAt +
+                ", updateddAt=" + updatedAt +
                 '}';
     }
 }
