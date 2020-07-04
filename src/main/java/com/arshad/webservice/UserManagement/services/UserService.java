@@ -1,16 +1,17 @@
 package com.arshad.webservice.UserManagement.services;
 
 import com.arshad.webservice.UserManagement.beans.User;
+import com.arshad.webservice.UserManagement.beans.UserResponseModel;
 
 import java.util.List;
 
 public interface UserService {
 
-    public List<User> getAllUsers();
+    public List<UserResponseModel> getAllUsers();
 
-    public User getUserByID(int id);
+    public UserResponseModel getUserByID(int id);
 
-    public User addUser(User user);
+    public UserResponseModel addUser(User user);
 
-    public User deleteUserById(int id);
+    public UserResponseModel deleteUserById(int id);
 }

@@ -1,7 +1,8 @@
 package com.arshad.webservice.UserManagement.serviceImpl;
 
 import com.arshad.webservice.UserManagement.beans.User;
-import com.arshad.webservice.UserManagement.repo.UserRepository;
+import com.arshad.webservice.UserManagement.beans.UserResponseModel;
+import com.arshad.webservice.UserManagement.repo.UserJPARepository;
 import com.arshad.webservice.UserManagement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,34 +15,52 @@ import java.util.*;
 public class UserServiceDbImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserJPARepository userRepository;
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserResponseModel> getAllUsers() {
+        List <UserResponseModel> userList = mapUserListToUserResponseModelList(userRepository.findAll());
+        return userList;
     }
 
-    public User getUserByID(int id) {
+    public UserResponseModel getUserByID(int id) {
         Optional<User> userOptional = userRepository.findById(id);
         if (userOptional.isPresent()) {
-            return userOptional.get();
+            return convertUserToUserResponseModel(userOptional.get());
         }
         return null;
     }
 
-    public User addUser(User user) {
+    public UserResponseModel addUser(User user) {
         user = userRepository.save(user);
-        return user;
+        return convertUserToUserResponseModel(user);
     }
 
     @Override
-    public User deleteUserById(int id) {
+    public UserResponseModel deleteUserById(int id) {
         Optional<User> userOptional = userRepository.findById(id);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             userRepository.delete(user);
-            return user;
+            return convertUserToUserResponseModel(user);
         }
         return null;
+    }
+
+    private List mapUserListToUserResponseModelList(List<User> users) {
+        List<UserResponseModel> userList = new ArrayList();
+        for (User user : users) {
+            UserResponseModel userModel = convertUserToUserResponseModel(user);
+            userList.add(userModel);
+        }
+        return userList;
+    }
+
+    private UserResponseModel convertUserToUserResponseModel(User user) {
+        UserResponseModel userModel = new UserResponseModel();
+        userModel.setId(user.getId());
+        userModel.setName(user.getName());
+        userModel.setBirthDate(user.getBirthDate());
+        return userModel;
     }
 
 }

@@ -1,9 +1,6 @@
 package com.arshad.webservice.UserManagement.serviceImpl;
 
 import com.arshad.webservice.UserManagement.beans.User;
-import com.arshad.webservice.UserManagement.repo.UserRepository;
-import com.arshad.webservice.UserManagement.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +8,7 @@ import java.util.*;
 
 @Service
 @Qualifier("userServiceImpl")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl  {
     private static int userCount = 2;
     private static List<User> userList = new ArrayList<>();
 
@@ -39,7 +36,7 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    @Override
+//    @Override
     public User deleteUserById(int id) {
         Iterator<User> itr = userList.iterator();
         while (itr.hasNext()) {
