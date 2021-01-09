@@ -2,8 +2,10 @@ package com.arshad.webservice.UserManagement.mapper;
 
 import com.arshad.webservice.UserManagement.beans.User;
 import com.arshad.webservice.UserManagement.beans.UserResponseModel;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
+
 
 import java.util.List;
 
