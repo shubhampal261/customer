@@ -1,4 +1,4 @@
-FROM tomcat:7.0.96
+FROM openjdk:8-jre-alpine
 
 ENV HOME=/root/
 
