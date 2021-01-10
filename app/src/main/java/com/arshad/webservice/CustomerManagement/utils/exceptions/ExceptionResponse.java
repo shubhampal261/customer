@@ -1,4 +1,4 @@
-package com.arshad.webservice.UserManagement.utils.exceptions;
+package com.arshad.webservice.CustomerManagement.utils.exceptions;
 
 import java.util.Date;
 

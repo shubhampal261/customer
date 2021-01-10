@@ -1,4 +1,4 @@
-package com.arshad.webservice.UserManagement.beans;
+package com.arshad.webservice.CustomerManagement.beans;
 
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -8,8 +8,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "customer")
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,10 +28,10 @@ public class User {
     @UpdateTimestamp
     private Date updatedAt;
 
-    public User() {
+    public Customer() {
     }
 
-    public User(int id, String name, Date birthDate, Date createdAt, Date updatedAt) {
+    public Customer(int id, String name, Date birthDate, Date createdAt, Date updatedAt) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
@@ -81,7 +81,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", birthDate=" + birthDate +

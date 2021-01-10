@@ -1,4 +1,4 @@
-package com.arshad.webservice.UserManagement.utils.exceptions;
+package com.arshad.webservice.CustomerManagement.utils.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +22,8 @@ public class CustomizedExceptionResponseEntity extends ResponseEntityExceptionHa
         return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(UserNotFoundException.class)
-    public final ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex, WebRequest request){
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public final ResponseEntity<Object> handleNotFoundException(CustomerNotFoundException ex, WebRequest request){
         ExceptionResponse exceptionResponse =
                 new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
 

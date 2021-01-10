@@ -1,10 +1,10 @@
-package com.arshad.webservice.UserManagement.beans;
+package com.arshad.webservice.CustomerManagement.beans;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class UserResponseModel {
+public class CustomerResponseModel {
 
     private int id;
     private String name;
@@ -39,7 +39,7 @@ public class UserResponseModel {
 
     @Override
     public String toString() {
-        return "UserResponseModel{" +
+        return "CustomerResponseModel{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", birthDate=" + birthDate +

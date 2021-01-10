@@ -1,13 +1,13 @@
-package com.arshad.webservice.UserManagement;
+package com.arshad.webservice.CustomerManagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserManagementApplication {
+public class CustomerManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserManagementApplication.class, args);
+		SpringApplication.run(CustomerManagementApplication.class, args);
 	}
 
 }

@@ -1,10 +1,10 @@
-package com.arshad.webservice.UserManagement;
+package com.arshad.webservice.CustomerManagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserManagementApplicationTests {
+class CustomerManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
