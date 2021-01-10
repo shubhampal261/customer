@@ -12,11 +12,10 @@
 
     <artifactId>dockers</artifactId>
     <groupId>com.arshad.webservice</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <modules>
-        <module>app-docker</module>
-        <module>postgres-docker</module>
+        <module>customer-app-docker</module>
     </modules>
 
 </project>
