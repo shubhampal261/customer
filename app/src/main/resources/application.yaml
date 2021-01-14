@@ -5,7 +5,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/customer_management
+    url: jdbc:postgresql://inventory-postgres:5432/customer_management
     username: postgres
     password: postgres
     hikari:
